@@ -7,32 +7,46 @@ import SoftDev from '../../assests/softwareDevelopment.svg';
 const Skills = () => {
     return (
         <section id="skills">
-            <span className="skillTitle">
-                What I Do.
-            </span>
+            <span className="skillTitle">About Me and What I Do.</span>
             <span className="skillDiscription">
-                A passionate Software Developer with 1+ years of experience in designing,developing, and maintaining scalable software solutions. Proficient in modernprogramming languages, frameworks, and tools, with strong problem-solvingskills and Agile methodologies.
+                A passionate and dedicated Software Developer with over 1 year of hands-on experience in crafting scalable and efficient software solutions. I specialize in building robust web applications using modern programming languages, frameworks, and development tools. With a strong foundation in software engineering principles, I thrive in solving complex problems, optimizing performance, and delivering clean, maintainable code. I’m also well-versed in Agile methodologies, allowing me to collaborate effectively in fast-paced team environments and adapt quickly to evolving project requirements.
             </span>
-            <div className="skillBars">
-                <div className="skillBar">
-                    <img src={UiUx} alt="UI/UX Design" className="skillBarImg" />
-                    <div className="skillBarText">
-                        <h2>UI / UX Design</h2>
-                        <p>I focus on creating intuitive and user-centered designs that enhance the overall user experience. From wireframes to prototypes, I ensure that every element serves a purpose and delivers a smooth interaction.</p>
-                    </div>
+            <div className="skillsContainer">
+                <div className="jenilColumn">
+                    <h2 className="jenilTitle">Who is JENIL?</h2>
+                    <ul className="jenilList">
+                        <li><strong>J</strong> – Just makes things work</li>
+                        <li><strong>E</strong> – Engineer of scalable systems</li>
+                        <li><strong>N</strong> – Navigating code with clarity</li>
+                        <li><strong>I</strong> – Innovating through clean architecture</li>
+                        <li><strong>L</strong> – Lover of logic and user experience</li>
+                    </ul>
                 </div>
-                <div className="skillBar">
-                    <img src={WebD} alt="Web Design" className="skillBarImg" />
-                    <div className="skillBarText">
-                        <h2>Web Design</h2>
-                        <p>I design modern, responsive websites that are not only visually appealing but also optimized for performance and accessibility across all devices and screen sizes.</p>
-                    </div>
-                </div>
-                <div className="skillBar">
-                    <img src={SoftDev} alt="Software Developer" className="skillBarImg" />
-                    <div className="skillBarText">
-                        <h2>Software Developer</h2>
-                        <p>As a software developer, I build robust and scalable applications using clean, efficient code. I enjoy turning complex problems into practical, working solutions that add real value.</p>
+
+                <div className="skillsContent">
+
+                    <div className="skillBars">
+                        <div className="skillBar">
+                            <img src={UiUx} alt="UI/UX Design" className="skillBarImg" />
+                            <div className="skillBarText">
+                                <h2>UI / UX Design</h2>
+                                <p>I focus on creating intuitive and user-centered designs that enhance the overall user experience...</p>
+                            </div>
+                        </div>
+                        <div className="skillBar">
+                            <img src={WebD} alt="Web Design" className="skillBarImg" />
+                            <div className="skillBarText">
+                                <h2>Web Design & Development</h2>
+                                <p>I design modern, responsive websites that are not only visually appealing but also optimized...</p>
+                            </div>
+                        </div>
+                        <div className="skillBar">
+                            <img src={SoftDev} alt="Software Developer" className="skillBarImg" />
+                            <div className="skillBarText">
+                                <h2>Software Developer</h2>
+                                <p>As a software developer, I build robust and scalable applications using clean, efficient code...</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
