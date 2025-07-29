@@ -1,53 +1,94 @@
 import React from 'react';
-import '../../components/componantStyle.css';
-import UiUx from '../../assests/Ui_Ux_Design.jpg';
-import WebD from '../../assests/WebDesign.svg';
-import SoftDev from '../../assests/softwareDevelopment.svg';
 
 const Skills = () => {
     return (
-        <section id="skills">
-            <span className="skillTitle">About Me and What I Do.</span>
-            <span className="skillDiscription">
-                A passionate and dedicated Software Developer with over 1 year of hands-on experience in crafting scalable and efficient software solutions. I specialize in building robust web applications using modern programming languages, frameworks, and development tools. With a strong foundation in software engineering principles, I thrive in solving complex problems, optimizing performance, and delivering clean, maintainable code. I’m also well-versed in Agile methodologies, allowing me to collaborate effectively in fast-paced team environments and adapt quickly to evolving project requirements.
-            </span>
-            <div className="skillsContainer">
-                <div className="jenilColumn">
-                    <h2 className="jenilTitle">Who is JENIL?</h2>
-                    <ul className="jenilList">
-                        <li><strong>J</strong> – Just makes things work</li>
-                        <li><strong>E</strong> – Engineer of scalable systems</li>
-                        <li><strong>N</strong> – Navigating code with clarity</li>
-                        <li><strong>I</strong> – Innovating through clean architecture</li>
-                        <li><strong>L</strong> – Lover of logic and user experience</li>
-                    </ul>
+        <section className="skills-section" id='skillSection'>
+            <h1 className="skills-title">Skills</h1>
+            <div className="skills-grid">
+
+                <div className="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+                    <span>HTML5</span>
                 </div>
 
-                <div className="skillsContent">
+                <div className="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+                    <span>CSS3</span>
+                </div>
 
-                    <div className="skillBars">
-                        <div className="skillBar">
-                            <img src={UiUx} alt="UI/UX Design" className="skillBarImg" />
-                            <div className="skillBarText">
-                                <h2>UI / UX Design</h2>
-                                <p>I focus on creating intuitive and user-centered designs that enhance the overall user experience...</p>
-                            </div>
-                        </div>
-                        <div className="skillBar">
-                            <img src={WebD} alt="Web Design" className="skillBarImg" />
-                            <div className="skillBarText">
-                                <h2>Web Design & Development</h2>
-                                <p>I design modern, responsive websites that are not only visually appealing but also optimized...</p>
-                            </div>
-                        </div>
-                        <div className="skillBar">
-                            <img src={SoftDev} alt="Software Developer" className="skillBarImg" />
-                            <div className="skillBarText">
-                                <h2>Software Developer</h2>
-                                <p>As a software developer, I build robust and scalable applications using clean, efficient code...</p>
-                            </div>
-                        </div>
-                    </div>
+                <div className="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                    <span>JavaScript</span>
+                </div>
+
+                <div className="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" />
+                    <span>Bootstrap</span>
+                </div>
+
+                <div className="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="AngularJS" />
+                    <span>AngularJS</span>
+                </div>
+
+                <div className="skill-card learning">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+                    <span>React (Learning)</span>
+                </div>
+
+                <div className="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" />
+                    <span>PHP</span>
+                </div>
+
+                <div className="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-line.svg" alt="Laravel" />
+                    <span>Laravel</span>
+                </div>
+
+                <div className="skill-card learning">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="NodeJS" />
+                    <span>NodeJS (Learning)</span>
+                </div>
+
+                <div className="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+                    <span>MySQL</span>
+                </div>
+
+                <div className="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis" />
+                    <span>Redis</span>
+                </div>
+
+                <div className="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+                    <span>Git</span>
+                </div>
+
+                <div className="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VSCode" />
+                    <span>VS Code</span>
+                </div>
+
+                <div className="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman" />
+                    <span>Postman</span>
+                </div>
+
+                <div className="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="figma" />
+                    <span>Figma</span>
+                </div>
+
+                <div className="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-original.svg" alt="Ubuntu" />
+                    <span>Ubuntu</span>
+                </div>
+
+                <div className="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows11/windows11-original.svg" alt="Windows" />
+                    <span>Windows</span>
                 </div>
             </div>
         </section>
