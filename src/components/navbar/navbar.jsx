@@ -64,6 +64,16 @@ const Navbar = () => {
                 >
                     Skills
                 </Link>
+
+                <Link
+                    className="desktopMenuListItem"
+                    onClick={() => {
+                        setMenuOpen(false);
+                        document.getElementById('contactUs')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                >
+                    Contact Us
+                </Link>
             </div>
 
             <button className="desktopMenuBtn" onClick={handleResumeDownload}>

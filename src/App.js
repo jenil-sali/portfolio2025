@@ -3,6 +3,8 @@ import Navbar from "./components/navbar/navbar";
 import Intro from "./components/Introduction/intro";
 import About from "./components/about/about";
 import Skills from "./components/skills/skills";
+import ContactUs from "./components/ContactUs/contactUs";
+import Footer from "./components/footer/footer";
 import { useEffect } from "react";
 function App() {
   useEffect(() => {
@@ -49,6 +51,8 @@ function App() {
       <Intro />
       <About />
       <Skills />
+      <ContactUs />
+      <Footer />
     </div>
   );
 }

@@ -390,6 +390,212 @@ section {
     }
 }
 
+#contactUs {
+    overflow: hidden;
+    width: 100vw;
+    max-width: 65rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+    color: #fff;
+    text-align: left;
+}
+
+/* Wrapper for Form + Info */
+.contact-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    width: 100%;
+    background: rgb(35, 35, 35);
+    border-radius: 10px;
+    padding: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: #fff;
+}
+
+/* Form & Info Section Layout */
+.form-section,
+.info-section {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Headings */
+.form-section h3,
+.info-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+#contactUs h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+/* Form Styling */
+.form-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section input,
+.form-section textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #555;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.form-section input::placeholder,
+.form-section textarea::placeholder {
+    color: #aaa;
+    font-style: 'Poppins';
+}
+
+.form-section input:focus,
+.form-section textarea:focus {
+    outline: none;
+    border-bottom: 1px solid yellow;
+}
+
+/* Submit Button */
+.form-section button {
+    padding: 12px 20px;
+    border: none;
+    background-color: rgb(222, 237, 5);
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    width: fit-content;
+    border-radius: 4px;
+}
+
+.form-section button:hover {
+    background-color: #e6c200;
+}
+
+/* Info Text */
+.info-section p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #bbb;
+    text-align: left;
+}
+
+/* Contact Info Entries */
+.info {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.info i {
+    margin-right: 12px;
+    font-size: 18px;
+    margin-top: 4px;
+    color: rgb(222, 237, 5);
+    min-width: 20px;
+}
+
+.info strong {
+    display: block;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.info div {
+    line-height: 1.4;
+}
+
+.portfolio-footer {
+    background-color: #1c1c1c;
+    color: #fff;
+    padding: 2rem 1rem 1rem;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-brand h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #fcd34d;
+}
+
+.footer-brand p {
+    margin-top: 0.3rem;
+    font-size: 0.95rem;
+    color: #bbb;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #fcd34d;
+    cursor: pointer;
+}
+
+.footer-socials a {
+    margin-right: 1rem;
+    display: inline-block;
+}
+
+.footer-socials img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+
+.footer-socials a:hover img {
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #888;
+    border-top: 1px solid #333;
+    padding-top: 1rem;
+}
+
 /* Mobile Styles Only */
 @media (max-width: 768px) {
     .desktopMenu {
@@ -431,5 +637,39 @@ section {
 
     .desktopMenuBtn {
         display: none;
+    }
+
+    .contact-wrapper {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    .form-section button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .info-section p,
+    .info-section {
+        text-align: left;
+    }
+
+    .skillsContent {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+    }
+
+    .footer-socials {
+        justify-content: center;
     }
 }
