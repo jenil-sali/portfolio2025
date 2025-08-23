@@ -1,6 +1,58 @@
-import React from 'react';
+import { useEffect } from 'react';
+import emailjs from '@emailjs/browser';
+const ContactUs = () => {
+    useEffect(() => {
+        const form = document.forms["contact-us"];
+        if (!form) return;
 
-const contactUs = () => {
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            let text = "📩 New Form Submission:\n";
+            formData.forEach((value, key) => {
+                text += `🔹 ${key}: ${value}\n`;
+            });
+            fetch(process.env.REACT_APP_TELEGRAM_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    chat_id: process.env.REACT_APP_TELEGRAM_CHATID,
+                    text: text
+                })
+            }).then(res => res.json())
+                .then(data => {
+                    alert("✅ Message sent to Telegram!");
+                })
+                .catch(err => {
+                    alert("❌ Error sending message.");
+                    console.error(err);
+                });
+
+
+            emailjs.send(
+                process.env.REACT_APP_EMAILJS_SERVICEID,
+                process.env.REACT_APP_EMAILJS_TEMPLETID,
+                {
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    subject: formData.subject,
+                    message: formData.message
+                },
+                process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
+            ).then((result) => {
+                console.log('Email sent!', result.text);
+                alert("Message sent!");
+                form.reset();
+            }).catch((error) => {
+                console.error('Error sending email:', error);
+                alert("Failed to send message.");
+            });
+        };
+
+        form.addEventListener("submit", handleSubmit);
+
+        return () => form.removeEventListener("submit", handleSubmit);
+    }, []);
     return (
         <section className="contactUs" id='contactUs'>
             <span className="skillTitle">Contact Me.</span>
@@ -8,11 +60,11 @@ const contactUs = () => {
             <div className="contact-wrapper">
                 <div className="form-section">
                     <h3>Write us</h3>
-                    <form>
-                        <input type="text" placeholder="Name" required />
-                        <input type="email" placeholder="Email" required />
-                        <input type="text" placeholder="Subject" />
-                        <textarea placeholder="Message" required></textarea>
+                    <form id='contact-us' className='contact-us' name='contact-us'>
+                        <input type="text" placeholder="Name" name='Name' required />
+                        <input type="email" placeholder="Email" name='Email' required />
+                        <input type="text" placeholder="Subject" name='Subject' />
+                        <textarea placeholder="Message" name='Message' required></textarea>
                         <button type="submit">Send Message</button>
                     </form>
                 </div>
@@ -41,4 +93,4 @@ const contactUs = () => {
     )
 }
 
-export default contactUs
+export default ContactUs
