@@ -7,43 +7,47 @@ import ContactUs from "./components/ContactUs/contactUs";
 import Footer from "./components/footer/footer";
 import { useEffect } from "react";
 function App() {
+  const app_debug = process.env.REACT_APP_DEBUG;
   useEffect(() => {
     const handleKeyDown = (e) => {
-      const key = e.key.toLowerCase();
+      if (app_debug == false) {
+        const key = e.key.toLowerCase();
 
-      // Block F12
-      if (e.key === "F12") {
-        e.preventDefault();
-      }
+        // Block F12
+        if (e.key === "F12") {
+          e.preventDefault();
+        }
 
-      // Block Ctrl+Shift+I / J / C
-      if (e.ctrlKey && e.shiftKey && ["i", "j", "c"].includes(key)) {
-        e.preventDefault();
-      }
+        // Block Ctrl+Shift+I / J / C
+        if (e.ctrlKey && e.shiftKey && ["i", "j", "c"].includes(key)) {
+          e.preventDefault();
+        }
 
-      // Block Ctrl+U
-      if (e.ctrlKey && key === "u") {
-        e.preventDefault();
-      }
+        // Block Ctrl+U
+        if (e.ctrlKey && key === "u") {
+          e.preventDefault();
+        }
 
-      // Optional: Block Ctrl+S (save page)
-      if (e.ctrlKey && key === "s") {
-        e.preventDefault();
-      }
-    };
+        // Optional: Block Ctrl+S (save page)
+        if (e.ctrlKey && key === "s") {
+          e.preventDefault();
+        }
+      };
 
-    const handleContextMenu = (e) => {
-      e.preventDefault(); // disable right-click
-    };
+      const handleContextMenu = (e) => {
+        e.preventDefault(); // disable right-click
+      };
 
-    window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("contextmenu", handleContextMenu);
+      window.addEventListener("keydown", handleKeyDown);
+      window.addEventListener("contextmenu", handleContextMenu);
 
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("contextmenu", handleContextMenu);
-    };
-  }, []);
+      return () => {
+        window.removeEventListener("keydown", handleKeyDown);
+        window.removeEventListener("contextmenu", handleContextMenu);
+      };
+    }
+  }, [app_debug]);
+
 
   return (
     <div className="App">
