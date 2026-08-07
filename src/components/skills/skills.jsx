@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layout, Server, Database, Settings } from 'lucide-react';
+import { Layout, Server, Database, Settings, Terminal, Layers } from 'lucide-react';
 import './Skills.css';
 
 const skillCategories = [
@@ -17,11 +17,16 @@ const skillCategories = [
   {
     title: "Developer Tools & AI",
     icon: <Settings size={20} />,
-    skills: ["Git", "Linux", "Postman", "VS Code", "Cursor AI", "ChatGPT", "n8n"]
+    skills: ["Git", "Postman", "VS Code", "Cursor AI", "ChatGPT", "n8n"]
+  },
+  {
+    title: "Server Architecture",
+    icon: <Terminal size={20} />,
+    skills: ["Linux", "Nginx", "Apache", "Docker", "Bash Scripting", "Server Monitoring"]
   },
   {
     title: "Core Concepts",
-    icon: <Server size={20} />,
+    icon: <Layers size={20} />,
     skills: ["REST APIs", "Microservices", "Production Debugging", "Scalable Systems"]
   }
 ];
@@ -29,7 +34,7 @@ const skillCategories = [
 const Skills = () => {
   return (
     <section id="skills" className="skills-section section-container">
-      <motion.h2 
+      <motion.h2
         className="section-heading"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -40,7 +45,7 @@ const Skills = () => {
 
       <div className="skills-container">
         {skillCategories.map((category, index) => (
-          <motion.div 
+          <motion.div
             key={index}
             className="skill-category-card"
             initial={{ opacity: 0, y: 20 }}
@@ -52,7 +57,7 @@ const Skills = () => {
               <div className="category-icon">{category.icon}</div>
               <h3>{category.title}</h3>
             </div>
-            
+
             <div className="skills-grid">
               {category.skills.map((skill, idx) => (
                 <div key={idx} className="skill-node">
