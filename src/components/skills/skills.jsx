@@ -1,98 +1,71 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { Layout, Server, Database, Settings } from 'lucide-react';
+import './Skills.css';
+
+const skillCategories = [
+  {
+    title: "Languages & Frameworks",
+    icon: <Layout size={20} />,
+    skills: ["PHP", "JavaScript", "SQL", "Laravel", "Node.js", "AngularJS", "Bootstrap"]
+  },
+  {
+    title: "Databases & Real-Time",
+    icon: <Database size={20} />,
+    skills: ["MySQL", "Redis", "FreeSWITCH", "WebSockets", "Lua Scripting"]
+  },
+  {
+    title: "Developer Tools & AI",
+    icon: <Settings size={20} />,
+    skills: ["Git", "Linux", "Postman", "VS Code", "Cursor AI", "ChatGPT", "n8n"]
+  },
+  {
+    title: "Core Concepts",
+    icon: <Server size={20} />,
+    skills: ["REST APIs", "Microservices", "Production Debugging", "Scalable Systems"]
+  }
+];
 
 const Skills = () => {
-    return (
-        <section className="skills-section" id='skillSection'>
-            <h1 className="skills-title">Skills.</h1>
-            <div className="skills-grid">
+  return (
+    <section id="skills" className="skills-section section-container">
+      <motion.h2 
+        className="section-heading"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        <span className="tech-text">03.</span> Technical Capabilities
+      </motion.h2>
 
-                <div className="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
-                    <span>HTML5</span>
-                </div>
-
-                <div className="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
-                    <span>CSS3</span>
-                </div>
-
-                <div className="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
-                    <span>JavaScript</span>
-                </div>
-
-                <div className="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" />
-                    <span>Bootstrap</span>
-                </div>
-
-                <div className="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="AngularJS" />
-                    <span>AngularJS</span>
-                </div>
-
-                <div className="skill-card learning">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
-                    <span>React (Learning)</span>
-                </div>
-
-                <div className="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" />
-                    <span>PHP</span>
-                </div>
-
-                <div className="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-line.svg" alt="Laravel" />
-                    <span>Laravel</span>
-                </div>
-
-                <div className="skill-card learning">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="NodeJS" />
-                    <span>NodeJS (Learning)</span>
-                </div>
-
-                <div className="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
-                    <span>MySQL</span>
-                </div>
-
-                <div className="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis" />
-                    <span>Redis</span>
-                </div>
-
-                <div className="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
-                    <span>Git</span>
-                </div>
-
-                <div className="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VSCode" />
-                    <span>VS Code</span>
-                </div>
-
-                <div className="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman" />
-                    <span>Postman</span>
-                </div>
-
-                <div className="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="figma" />
-                    <span>Figma</span>
-                </div>
-
-                <div className="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-original.svg" alt="Ubuntu" />
-                    <span>Ubuntu</span>
-                </div>
-
-                <div className="skill-card">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows11/windows11-original.svg" alt="Windows" />
-                    <span>Windows</span>
-                </div>
+      <div className="skills-container">
+        {skillCategories.map((category, index) => (
+          <motion.div 
+            key={index}
+            className="skill-category-card"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.1 }}
+          >
+            <div className="category-header">
+              <div className="category-icon">{category.icon}</div>
+              <h3>{category.title}</h3>
             </div>
-        </section>
-    )
-}
+            
+            <div className="skills-grid">
+              {category.skills.map((skill, idx) => (
+                <div key={idx} className="skill-node">
+                  <span className="node-dot"></span>
+                  {skill}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
-export default Skills
+export default Skills;

@@ -1,0 +1,131 @@
+.contact-section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-terminal-wrapper {
+  background: rgba(10, 13, 18, 0.9);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-tech);
+}
+
+.terminal-header {
+  background: rgba(20, 25, 30, 0.8);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+  text-align: center;
+}
+
+.terminal-title {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.terminal-body {
+  padding: 2rem;
+}
+
+.terminal-logs {
+  margin-bottom: 2.5rem;
+}
+
+.log {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.log.sys {
+  color: var(--text-muted);
+}
+
+.log.success {
+  color: #10b981;
+}
+
+.prompt-sign {
+  color: var(--accent-violet);
+  margin-right: 0.5rem;
+}
+
+.mt-2 {
+  margin-top: 1rem;
+  color: var(--text-primary) !important;
+}
+
+.terminal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed var(--border-light);
+  color: var(--text-primary);
+  font-family: var(--font-tech);
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.terminal-input:focus {
+  border-bottom-color: var(--accent-cyan);
+}
+
+.textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.terminal-submit-btn {
+  background: transparent;
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan);
+  padding: 1rem;
+  font-family: var(--font-tech);
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.terminal-submit-btn span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.terminal-submit-btn:hover:not(:disabled) {
+  background: rgba(0, 240, 255, 0.1);
+}
+
+.terminal-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  border-color: var(--text-muted);
+  color: var(--text-muted);
+}
+
+.success-text {
+  color: #10b981;
+}

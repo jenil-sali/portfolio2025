@@ -1,16 +1,21 @@
+import React, { useEffect } from "react";
+import Navbar from "./components/Navbar/Navbar";
+import Hero from "./components/Hero/Hero";
+import About from "./components/About/About";
+import Experience from "./components/Experience/Experience";
+import Skills from "./components/Skills/Skills";
+import Projects from "./components/Projects/Projects";
+import CodeTerminal from "./components/CodeTerminal/CodeTerminal";
+import Contact from "./components/Contact/Contact";
+import Footer from "./components/Footer/Footer";
 
-import Navbar from "./components/navbar/navbar";
-import Intro from "./components/Introduction/intro";
-import About from "./components/about/about";
-import Skills from "./components/skills/skills";
-import ContactUs from "./components/ContactUs/contactUs";
-import Footer from "./components/footer/footer";
-import { useEffect } from "react";
 function App() {
   const app_debug = process.env.REACT_APP_DEBUG;
+
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (app_debug == false) {
+      // Intentionally using loose equality as in original code
+      if (app_debug === 'false' || app_debug === false) {
         const key = e.key.toLowerCase();
 
         // Block F12
@@ -28,34 +33,41 @@ function App() {
           e.preventDefault();
         }
 
-        // Optional: Block Ctrl+S (save page)
+        // Block Ctrl+S (save page)
         if (e.ctrlKey && key === "s") {
           e.preventDefault();
         }
-      };
+      }
+    };
 
-      const handleContextMenu = (e) => {
+    const handleContextMenu = (e) => {
+      if (app_debug === 'false' || app_debug === false) {
         e.preventDefault(); // disable right-click
-      };
+      }
+    };
 
-      window.addEventListener("keydown", handleKeyDown);
-      window.addEventListener("contextmenu", handleContextMenu);
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("contextmenu", handleContextMenu);
 
-      return () => {
-        window.removeEventListener("keydown", handleKeyDown);
-        window.removeEventListener("contextmenu", handleContextMenu);
-      };
-    }
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("contextmenu", handleContextMenu);
+    };
   }, [app_debug]);
-
 
   return (
     <div className="App">
+      <div className="bg-grid"></div>
+      <div className="bg-glow"></div>
+      
       <Navbar />
-      <Intro />
+      <Hero />
       <About />
+      <Experience />
       <Skills />
-      <ContactUs />
+      <Projects />
+      <CodeTerminal />
+      <Contact />
       <Footer />
     </div>
   );

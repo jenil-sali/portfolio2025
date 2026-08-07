@@ -1,15 +1,41 @@
+:root {
+    --bg-primary: #0f172a;
+    --bg-secondary: rgba(30, 41, 59, 0.7);
+    --bg-card: rgba(30, 41, 59, 0.6);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-color: #38bdf8;
+    --gradient-primary: linear-gradient(135deg, #38bdf8, #818cf8);
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
     background: transparent;
-    font-style: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
-    background: rgb(30, 30, 30);
-    color: white;
-    overflow: hidden;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
     overflow-y: scroll;
+    -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--bg-secondary);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
 }

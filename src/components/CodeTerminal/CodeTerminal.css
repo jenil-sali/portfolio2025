@@ -1,0 +1,104 @@
+.code-terminal-section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  max-width: 800px;
+}
+
+.editor-window {
+  background: #1e1e1e; /* VS Code dark theme bg */
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-tech);
+}
+
+.editor-header {
+  background: #252526;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.editor-dots {
+  display: flex;
+  gap: 8px;
+  padding: 0 16px;
+}
+
+.editor-dots .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.editor-tabs {
+  display: flex;
+}
+
+.editor-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #1e1e1e;
+  color: #cccccc;
+  font-size: 0.85rem;
+  border-top: 1px solid transparent;
+  cursor: default;
+}
+
+.editor-tab.active {
+  color: #ffffff;
+  border-top: 1px solid var(--accent-cyan);
+}
+
+.tab-icon {
+  color: #519aba;
+}
+
+.editor-body {
+  display: flex;
+  padding: 1rem 0;
+  background: #1e1e1e;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.line-numbers {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.5rem;
+  color: #858585;
+  text-align: right;
+  user-select: none;
+  border-right: 1px solid #404040;
+}
+
+.code-content {
+  padding: 0 1.5rem;
+  overflow-x: auto;
+}
+
+.code-content pre {
+  margin: 0;
+}
+
+/* Syntax Highlighting */
+.keyword { color: #569cd6; }
+.variable { color: #4fc1ff; }
+.operator { color: #d4d4d4; }
+.property { color: #9cdcfe; }
+.string { color: #ce9178; }
+
+@media (max-width: 600px) {
+  .editor-body {
+    font-size: 0.8rem;
+  }
+  .line-numbers {
+    padding: 0 1rem;
+  }
+  .code-content {
+    padding: 0 1rem;
+  }
+}

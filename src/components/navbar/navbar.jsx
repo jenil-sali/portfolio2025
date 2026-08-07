@@ -1,87 +1,94 @@
-import React, { useState } from "react";
-import '../../components/componantStyle.css';
-import logo from '../../assests/logoOriginal.svg';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import contactImg from '../../assests/pdf-file-format.png'
+import { Menu, X, TerminalSquare } from 'lucide-react';
+import './Navbar.css';
 
 const Navbar = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-    const handleResumeDownload = () => {
-        const link = document.createElement('a');
-        link.href = '/resume.pdf'; // path relative to public/
-        link.download = 'Resume_JenilSali_SDE-I.pdf'; // optional: custom filename
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
     };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    return (
-        <nav className="navbar">
-            <img src={logo} alt="Logo" className="logo" />
+  const handleResumeDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'Jenil_Sali_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
-            {/* Mobile Right Section: icon + menu toggle */}
-            <div className="mobile-controls">
-                <button className="iconOnlyBtn" title="Download Resume" onClick={handleResumeDownload}>
-                    <img src={contactImg} alt="Resume" className="iconOnlyIcon" />
-                </button>
+  const navLinks = [
+    { name: 'Home', to: 'hero' },
+    { name: 'About', to: 'about' },
+    { name: 'Experience', to: 'experience' },
+    { name: 'Skills', to: 'skills' },
+    { name: 'Projects', to: 'projects' },
+    { name: 'Contact', to: 'contact' },
+  ];
 
-                <div className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                </div>
-            </div>
+  return (
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <div className="nav-container">
+        <Link to="hero" smooth={true} className="nav-brand">
+          <TerminalSquare className="brand-icon" size={24} />
+          <span className="brand-text">JS_</span>
+        </Link>
 
-            {/* Navigation Menu */}
-            <div className={`desktopMenu ${menuOpen ? "showMenu" : ""}`}>
-                <Link
-                    className="desktopMenuListItem"
-                    onClick={() => {
-                        setMenuOpen(false);
-                        document.getElementById('intro')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                >
-                    Home
-                </Link>
+        <div className="nav-links desktop-only">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.to}
+              smooth={true}
+              spy={true}
+              offset={-80}
+              className="nav-item"
+              activeClass="active"
+            >
+              {link.name}
+            </Link>
+          ))}
+          <button className="btn-primary" onClick={handleResumeDownload}>
+            Resume
+          </button>
+        </div>
 
-                <Link
-                    className="desktopMenuListItem"
-                    onClick={() => {
-                        setMenuOpen(false);
-                        document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                >
-                    About
-                </Link>
+        <div className="mobile-only">
+          <button className="menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </div>
 
-                <Link
-                    className="desktopMenuListItem"
-                    onClick={() => {
-                        setMenuOpen(false);
-                        document.getElementById('skillSection')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                >
-                    Skills
-                </Link>
+      {/* Mobile Menu */}
+      <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
+        {navLinks.map((link) => (
+          <Link
+            key={link.name}
+            to={link.to}
+            smooth={true}
+            spy={true}
+            offset={-80}
+            className="mobile-nav-item"
+            activeClass="active"
+            onClick={() => setMenuOpen(false)}
+          >
+            {link.name}
+          </Link>
+        ))}
+        <button className="btn-primary mobile-resume-btn" onClick={handleResumeDownload}>
+          Download Resume
+        </button>
+      </div>
+    </nav>
+  );
+};
 
-                <Link
-                    className="desktopMenuListItem"
-                    onClick={() => {
-                        setMenuOpen(false);
-                        document.getElementById('contactUs')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                >
-                    Contact Us
-                </Link>
-            </div>
-
-            <button className="desktopMenuBtn" onClick={handleResumeDownload}>
-                <img src={contactImg} alt="Resume" className="desktopMenuIcon" />
-                Resume
-            </button>
-        </nav>
-    );
-}
-
-export default Navbar
+export default Navbar;

@@ -1,0 +1,132 @@
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 2rem;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 5px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent-cyan), rgba(0, 240, 255, 0.1));
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-node {
+  position: absolute;
+  left: -2rem; /* Aligns with the line */
+  top: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 2px solid var(--accent-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+.node-core {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+}
+
+.timeline-content {
+  background: rgba(14, 19, 26, 0.5);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.timeline-content:hover {
+  border-color: rgba(0, 240, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: translateX(5px);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.role {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.year {
+  background: rgba(0, 240, 255, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+.company {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.company-icon {
+  color: var(--text-muted);
+}
+
+.description {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-badge {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-light);
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  font-family: var(--font-tech);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.timeline-content:hover .tech-badge {
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .timeline-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

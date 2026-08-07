@@ -1,70 +1,43 @@
 import React from 'react';
-import { Link } from 'react-scroll';
-import Gmail from '../../assests/gmail.svg';
-import Instagram from '../../assests/instagram.svg';
+import { Mail } from 'lucide-react';
+import './Footer.css';
 
 const Footer = () => {
-    return (
-        <footer className="portfolio-footer">
-            <div className="footer-container">
-                <div className="footer-brand">
-                    <h2>Jenil Sali</h2>
-                    <p>Software Development Engineer - I</p>
-                </div>
-
-                <div className="footer-links">
-                    <Link
-                        onClick={() => {
-                            document.getElementById('intro')?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                    >
-                        Home
-                    </Link>
-                    <Link
-                        onClick={() => {
-                            document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                    >
-                        About
-                    </Link>
-                    <Link
-                        onClick={() => {
-                            document.getElementById('skillSection')?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                    >
-                        Skills
-                    </Link>
-                    <Link
-                        onClick={() => {
-                            document.getElementById('contactUs')?.scrollIntoView({ behavior: 'smooth' });
-                        }}
-                    >
-                        Contact Me
-                    </Link>
-                </div>
-
-                <div className="footer-socials">
-                    <a href="https://github.com/jenil-sali" target="_blank" aria-label="GitHub">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
-                    </a>
-                    <a href="https://linkedin.com/in/jenil-sali" target="_blank" aria-label="LinkedIn">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" />
-                    </a>
-                    <a href="mailto:jenilsali2508@gmail.com" target="_blank" aria-label="Email">
-                        <img src={Gmail} alt="Email" />
-                    </a>
-                    <a href="https://www.instagram.com/__.j_e_n_u.__/" target="_blank" aria-label="Instagram">
-                        <img src={Instagram} alt="Instagram" />
-                    </a>
-                </div>
+  return (
+    <footer className="footer-section">
+      <div className="footer-container">
+        <div className="footer-content">
+          
+          <div className="footer-brand-info">
+            <h3 className="tech-text">Jenil Sali</h3>
+            <p className="footer-role">Software Development Engineer</p>
+            <div className="system-status">
+              <span className="pulse-dot green"></span>
+              SYSTEM ONLINE
             </div>
+          </div>
 
-            <div className="footer-bottom">
-                &copy; 2025 Jenil Sali. All rights reserved.
-            </div>
-        </footer>
+          <div className="footer-socials">
+            <a href="https://github.com/jenil-sali" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub">
+              <i className="fa-brands fa-github" style={{ fontSize: '20px' }}></i>
+            </a>
+            <a href="https://linkedin.com/in/jenil-sali" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
+              <i className="fa-brands fa-linkedin" style={{ fontSize: '20px' }}></i>
+            </a>
+            <a href="mailto:jenilsali2508@gmail.com" className="social-link" aria-label="Email">
+              <Mail size={20} />
+            </a>
+          </div>
 
-    )
-}
+        </div>
 
-export default Footer
+        <div className="footer-bottom">
+          <p className="copyright">&copy; {new Date().getFullYear()} Jenil Sali.</p>
+          <p className="tech-stack-info">Built with React • Designed & Developed by Jenil</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
